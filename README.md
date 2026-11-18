@@ -73,7 +73,7 @@ Depois disso, cada **Commit + Push** pelo GitHub Desktop atualiza o site.
 
 ## 📌 Pendências
 
-- [ ] Número do WhatsApp — está em branco em `dados.js`, então todos os botões de WhatsApp (topo, evento, contato, rodapé e o flutuante) ficam escondidos até ser preenchido.
+- [x] WhatsApp: (15) 99613-9826 (mesmo número do telefone).
 - [ ] Nome/data do evento do vídeo, para um título mais específico.
 - [ ] Confirmar que as fotos do Google Maps usadas no site são da própria loja (ou trocar por fotos do dono).
 - [ ] Versão para computador.

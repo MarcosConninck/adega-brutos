@@ -12,7 +12,7 @@ window.BRUTOS = {
   // Deixar vazio ("") esconde os botões daquele contato no site.
 
   // WhatsApp: só dígitos, 55 + DDD + número (ex.: "5515999999999")
-  whatsapp: "",
+  whatsapp: "5515996139826",
 
   // Telefone para o botão "Ligar" (do Google Maps)
   telefone: "5515996139826",
