@@ -48,7 +48,7 @@ Para trocar o vídeo: substitua `assets/video/evento.mp4` (de preferência um v�
 
 | Quero mudar… | Onde |
 | --- | --- |
-| WhatsApp, telefone, Instagram | `dados.js` → `whatsapp`, `telefoneExibicao`, `instagram` |
+| WhatsApp, telefone, Instagram | `dados.js` → `whatsapp`, `telefone` / `telefoneExibicao`, `instagram` / `instagramUsuario` — campo vazio (`""`) esconde os botões daquele contato |
 | Horários | `dados.js` → `horarios` (0 = domingo … 6 = sábado; `"24:00"` = meia-noite) |
 | Título e texto do evento | `dados.js` → `evento` |
 | Nota e avaliações do Google | `dados.js` → `google` (copie os trechos como estão no Google) |
@@ -73,8 +73,7 @@ Depois disso, cada **Commit + Push** pelo GitHub Desktop atualiza o site.
 
 ## 📌 Pendências
 
-- [ ] Confirmar se o número (15) 99613-9826 é WhatsApp.
-- [ ] Instagram da loja (se tiver).
+- [ ] Número do WhatsApp — está em branco em `dados.js`, então todos os botões de WhatsApp (topo, evento, contato, rodapé e o flutuante) ficam escondidos até ser preenchido.
 - [ ] Nome/data do evento do vídeo, para um título mais específico.
 - [ ] Confirmar que as fotos do Google Maps usadas no site são da própria loja (ou trocar por fotos do dono).
 - [ ] Versão para computador.

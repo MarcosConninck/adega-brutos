@@ -19,17 +19,31 @@
   // ─── 1. LINKS E TEXTOS ─────────────────────────────────────
   const zap = (msg) => "https://wa.me/" + D.whatsapp + (msg ? "?text=" + encodeURIComponent(msg) : "");
 
-  $$("[data-whatsapp]").forEach((a) => (a.href = zap(a.dataset.whatsapp)));
+  // Botões de WhatsApp começam escondidos no HTML: só aparecem se houver número
+  $$("[data-whatsapp]").forEach((a) => {
+    if (D.whatsapp) {
+      a.href = zap(a.dataset.whatsapp);
+      a.hidden = false;
+    } else {
+      a.hidden = true;
+    }
+  });
+
+  // Instagram: some se o campo estiver vazio
+  $$("[data-instagram]").forEach((a) => {
+    if (D.instagram) a.href = D.instagram;
+    else a.hidden = true;
+  });
+  if (D.instagramUsuario) $("#instaUser").textContent = D.instagramUsuario;
+
   $$("[data-maps]").forEach((a) => (a.href = D.mapsLink));
 
   const call = $("#callBtn");
-  call.href = "tel:+" + D.whatsapp;
-  call.textContent = "Ligar " + D.telefoneExibicao;
-
-  const insta = $("#instaLink");
-  if (D.instagram) {
-    insta.href = D.instagram;
-    insta.hidden = false;
+  if (D.telefone) {
+    call.href = "tel:+" + D.telefone;
+    $("#phoneText").textContent = D.telefoneExibicao;
+  } else {
+    call.hidden = true;
   }
 
   $("#addressText").textContent = D.endereco;
