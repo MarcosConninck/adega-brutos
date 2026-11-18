@@ -1,0 +1,761 @@
+/* ============================================================
+   BRUTOS ADEGA | STYLE.CSS — mobile first
+   Tema: balcão de adega à noite — carvão, âmbar de cerveja e gelo
+   ============================================================ */
+
+/* ---------- VARIÁVEIS E RESET ---------- */
+:root {
+  --bg: #111111;
+  --bg-2: #181715;
+  --card: #1f1d1a;
+  --text: #f1ece4;
+  --muted: #a9a196;
+  --amber: #f5a524; /* cerveja */
+  --amber-dark: #d88a0e;
+  --ice: #8fd3ff; /* gelo */
+  --border: rgba(245, 165, 36, 0.2);
+  --whatsapp: #25d366;
+  --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --radius: 10px;
+  --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-h: 60px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ice);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 1000;
+  background: var(--amber);
+  color: #111;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- BOTÕES ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform var(--t),
+    background var(--t),
+    box-shadow var(--t),
+    color var(--t),
+    border-color var(--t);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-whatsapp {
+  background: var(--whatsapp);
+  color: #06351a;
+}
+.btn-whatsapp:hover {
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.3);
+}
+
+.btn-primary {
+  background: var(--amber);
+  color: #1a1206;
+}
+.btn-primary:hover {
+  background: var(--amber-dark);
+}
+
+.btn-outline {
+  border-color: rgba(241, 236, 228, 0.35);
+  color: var(--text);
+}
+.btn-outline:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* ---------- TÍTULOS ---------- */
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 11vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.section-desc {
+  color: var(--muted);
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--bg-2);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  transition:
+    background var(--t),
+    box-shadow var(--t);
+}
+
+.site-header.scrolled {
+  background: rgba(17, 17, 17, 0.9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--amber);
+  color: #1a1206;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  padding-top: 3px;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.brand-name small {
+  font-size: 1rem;
+  color: var(--amber);
+  margin-left: 2px;
+}
+
+/* Selo "Aberto agora / Fechado" */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+.status-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.status-pill.is-open::before {
+  background: var(--whatsapp);
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.2);
+}
+.status-pill.is-closed::before {
+  background: #e5484d;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--header-h) + 2rem) 0 3rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(143, 211, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(245, 165, 36, 0.18), transparent 60%),
+    var(--bg);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% center;
+  opacity: 0.35;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.55) 0%, rgba(17, 17, 17, 0.2) 35%, rgba(17, 17, 17, 0.92) 78%, var(--bg) 100%);
+}
+.hero-content,
+.hero-glow {
+  z-index: 1;
+}
+
+/* bolhas de cerveja subindo */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(245, 165, 36, 0.35) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(143, 211, 255, 0.25) 1px, transparent 1.5px);
+  background-size:
+    60px 60px,
+    90px 90px;
+  background-position:
+    0 0,
+    30px 40px;
+  mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+  animation: bubbles 18s linear infinite;
+}
+@keyframes bubbles {
+  to {
+    background-position:
+      0 -600px,
+      30px -860px;
+  }
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(4.2rem, 22vw, 8.5rem);
+  line-height: 0.88;
+  margin-bottom: 1.25rem;
+}
+.hero-title span {
+  color: var(--ice);
+  text-shadow: 0 0 30px rgba(143, 211, 255, 0.35);
+}
+
+.hero-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+  max-width: 420px;
+}
+.hero-quote cite {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+  margin-bottom: 2rem;
+}
+
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.hero-facts strong {
+  color: var(--text);
+}
+
+/* ---------- PRODUTOS ---------- */
+.features {
+  display: grid;
+  gap: 14px;
+}
+
+.feature {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.feature img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.feature-body {
+  padding: 1rem 1.1rem 1.2rem;
+}
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.feature p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Galeria deslizável (arrastar para o lado) */
+.gallery-title {
+  font-size: 1.1rem;
+  margin: 2.25rem 0 0.9rem;
+}
+.gallery {
+  display: flex;
+  gap: 10px;
+  margin: 0 -20px;
+  padding: 0 20px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 20px;
+  scrollbar-width: none;
+}
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+.gallery img {
+  flex: 0 0 82%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  scroll-snap-align: start;
+}
+
+.payments {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.payments span:first-child {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ---------- EVENTO ---------- */
+.event {
+  display: flex;
+  flex-direction: column;
+}
+.event .section-header {
+  margin-bottom: 1.5rem;
+}
+
+.event-video {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.event-video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 848; /* vídeo vertical: reserva o espaço antes de carregar */
+  object-fit: cover;
+  background: #000;
+}
+
+/* Botão de play grande sobre a capa (some quando o vídeo começa) */
+.video-play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.45));
+}
+.video-play svg {
+  width: 78px;
+  height: 78px;
+  padding: 20px 18px 20px 24px;
+  border-radius: 50%;
+  background: var(--amber);
+  fill: #1a1206;
+  box-shadow: 0 0 0 10px rgba(245, 165, 36, 0.25);
+  transition: transform var(--t);
+}
+.video-play:active svg {
+  transform: scale(0.92);
+}
+.event-video.is-playing .video-play {
+  display: none;
+}
+
+.event-cta {
+  margin-top: 1.5rem;
+  align-self: center;
+}
+
+/* ---------- AVALIAÇÕES ---------- */
+.stars {
+  color: var(--amber);
+  font-size: 0.6em;
+  vertical-align: middle;
+  letter-spacing: 2px;
+}
+
+.reviews {
+  display: grid;
+  gap: 12px;
+}
+
+.review {
+  padding: 1.25rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--amber);
+}
+.review p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.review footer {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- HORÁRIOS E LOCAL ---------- */
+.where {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hours {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.hours th,
+.hours td {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  font-weight: 500;
+}
+.hours td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.hours tr.is-today th,
+.hours tr.is-today td {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-style: normal;
+  margin-bottom: 1.5rem;
+}
+.address span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.where-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  filter: grayscale(0.3) contrast(1.05);
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  padding: 3rem 0 6rem; /* espaço para o botão flutuante */
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.5rem;
+}
+.footer-links a {
+  display: inline-block;
+  padding: 11px 2px;
+  color: var(--muted);
+}
+.footer-links a:hover {
+  color: var(--amber);
+}
+
+.legal {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.copy {
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* ---------- WHATSAPP FLUTUANTE ---------- */
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: #06351a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition:
+    transform var(--t),
+    opacity var(--t),
+    visibility var(--t);
+}
+.fab .icon {
+  width: 28px;
+  height: 28px;
+}
+.fab:active {
+  transform: scale(0.94);
+}
+/* some no topo (o hero já tem o botão) e enquanto o vídeo toca */
+.fab.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+}
+
+/* ---------- ANIMAÇÃO DE ENTRADA ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- TELAS MAIORES ---------- */
+@media (min-width: 560px) {
+  .hero-actions,
+  .where-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: none;
+  }
+}
+
+/* Por enquanto só a versão de celular: em telas grandes, a página
+   fica numa coluna central com largura de celular. */
+@media (min-width: 640px) {
+  .container {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* cabeçalho compacto para o selo de horário caber */
+  .brand-name small {
+    display: none;
+  }
+  .status-pill {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+  .btn {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A foto das cervejas tem uma anotação na parede à esquerda: corta esse lado */
+.feature img.crop-right {
+  aspect-ratio: 4 / 3;
+  object-position: right center;
+}
